@@ -1,0 +1,9 @@
+Azure is Microsoft's cloud computing platform.
+
+Python is a programming language used for automation, data engineering, AI and web development.
+
+RAG stands for Retrieval Augmented Generation.
+
+Git is a version control system used by developers.
+
+OpenAI develops artificial intelligence models.
