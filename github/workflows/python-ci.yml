@@ -1,0 +1,49 @@
+# Name shown in GitHub Actions
+name: Python CI Pipeline
+
+# Trigger pipeline when code is pushed
+on:
+  push:
+    branches:
+      - main
+
+# Also run when pull requests occur
+  pull_request:
+    branches:
+      - main
+
+jobs:
+
+  test:
+
+    # Create Ubuntu machine
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Download repository code
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Install Python
+      - name: Setup Python
+        uses: actions/setup-python@v5
+
+        with:
+          python-version: "3.11"
+
+      # Install dependencies
+      - name: Install Dependencies
+
+        run: |
+
+          python -m pip install --upgrade pip
+
+          pip install -r requirements.txt
+
+      # Run tests
+      - name: Run Tests
+
+        run: |
+
+          python -m unittest discover tests
